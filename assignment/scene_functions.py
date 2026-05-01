@@ -91,13 +91,13 @@ def create_fence(length=10, height=1.5, post_count=6, position=(0, 0, 0)):
 
     spacing = length / (post_count - 1)
 
-    # Creates The Posts
+    # Creates all The Posts
     for i in range(post_count):
         post = cmds.polyCube(width=0.2, height=height, depth=0.2)[0]
         cmds.move(i * spacing, height / 2.0, 0, post)
         parts.append(post)
 
-    # Creates Rail
+    # Creates all Rail
     rail = cmds.polyCube(width=length, height =0.2, depth=0.2)[0]
     cmds.move(length / 2.0, height * 0.75, 0, rail)
     parts.append(rail)
