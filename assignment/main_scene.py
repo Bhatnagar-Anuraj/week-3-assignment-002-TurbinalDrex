@@ -34,22 +34,36 @@ cmds.file(new=True, force=True)
 ground = cmds.polyPlane(name="ground", width=60, height=60,
                         subdivisionsX=1, subdivisionsY=1)[0]
 
-# ---------------------------------------------------------------------------
-# TODO: Build your scene below by calling functions from scene_functions.
-#
-# Example calls (uncomment and modify once your functions are implemented):
-#
-#   sf.create_building(width=5, height=10, depth=5, position=(-10, 0, 8))
-#   sf.create_tree(position=(3, 0, -5))
-#   sf.create_fence(length=12, post_count=7, position=(-6, 0, -3))
-#   sf.create_lamp_post(position=(8, 0, 2))
-#
-#   # Place 8 trees in a circle of radius 15:
-#   sf.place_in_circle(sf.create_tree, count=8, radius=15)
-#
-# Remember: call each function at least once, and aim for 15+ objects.
-# ---------------------------------------------------------------------------
+# City Area (BUILDINGS)
 
+sf.create_building(width=6, height=12, depth=6, position=(-12, 0, 10))
+sf.create_building(width=5, height=10, depth=5, position=(-6, 0, 10))
+sf.create_building(width=4, height=8, depth=4, position=(0, 0, 10))
+
+# Park Area (THE TREES)
+
+sf.create_tree(position=(5, 0, -5))
+sf.create_tree(position=(8, 0, -6))
+sf.create_tree(position=(3, 0, -7))
+
+# Fence Around the Park
+
+sf.create_fence(length=12, post_count=6, position=(2, 0, -10))
+
+# Street WIT the Lamp Posts
+
+sf.create_lamp_post(position=(-10, 0, 0))
+sf.create_lamp_post(position=(-5, 0, 0))
+sf.create_lamp_post(position=(0, 0, 0))
+sf.create_lamp_post(position=(5, 0, 0))
+
+# Main Circle Layout
+
+# Ring Of the Trees
+sf.place_in_circle(sf.create_tree, count=6, radius=12)
+
+# RING of lamp Posts
+sf.place_in_circle(sf.create_lamp_post, count=4, radius=8)
 
 # ---------------------------------------------------------------------------
 # Final viewport framing (do not remove).
