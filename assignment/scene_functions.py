@@ -23,7 +23,7 @@ GRADING CRITERIA:
 """
 
 import maya.cmds as cmds
-
+import math
 
 def create_building(width=4, height=8, depth=4, position=(0, 0, 0)):
     """Create a simple building from a cube, placed on the ground plane.
@@ -63,6 +63,7 @@ def create_tree(trunk_radius=0.3, trunk_height=3, canopy_radius=2,
         str: The name of a group node containing the trunk and canopy.
     """
     trunk = cmds.polyCylinder(radius=trunk_radius, height=trunk_height)[0]
+    canopy = cmds.polySphere(radius=canopy_radius)[0]
     cmds.move(0, trunk_height + canopy_radius, 0, canopy)
 
     tree_group = cmds.group(trunk, canopy)
@@ -99,7 +100,7 @@ def create_fence(length=10, height=1.5, post_count=6, position=(0, 0, 0)):
     # Creates Rail
     rail = cmds.polyCube(width=length, height =0.2, depth=0.2)[0]
     cmds.move(length / 2.0, height * 0.75, 0, rail)
-    parts.appened(rail)
+    parts.append(rail)
 
     fence_group = cmds.group(parts)
 
