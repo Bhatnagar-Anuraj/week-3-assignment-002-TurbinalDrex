@@ -161,6 +161,8 @@ def place_in_circle(create_func, count=8, radius=10, center=(0, 0, 0),
         z = center[2] +radius * math.sin(angle)
 
         obj = create_func(position=(x, center[1], z), **kwargs)
+        cmds.rotate(0, math.degrees(angle), 0, obj)
+        
         results.append(obj)
         
     return results
